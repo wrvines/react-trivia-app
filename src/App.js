@@ -21,7 +21,7 @@ function App() {
     e.preventDefault();
     axios
       .get(
-        `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
+        `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&encode=url3986`
       )
       .then((res) => {
         console.log(res.data.results);
@@ -76,10 +76,10 @@ function App() {
           </button>
         </div>
 
-        <div>
+        <div className=" bg-blue-300 max-w-[400px]">
           {questions?.map((trivia) => (
-            <div className="mx-auto p-4 border-b-2">
-              <h1 className="text-3xl">{trivia?.question}</h1>
+            <div className="mx-auto p-4 border-b-2 flex flex-col justify-center items-center">
+              <h1 className="text-3xl pb-4">{trivia?.question}</h1>
               <h3 className="text-2xl">{trivia?.correct_answer}</h3>
             </div>
           ))}

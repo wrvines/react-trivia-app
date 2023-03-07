@@ -21,7 +21,7 @@ function App() {
     e.preventDefault();
     axios
       .get(
-        `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&encode=url3986`
+        `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}`
       )
       .then((res) => {
         console.log(res.data.results);
@@ -48,7 +48,7 @@ function App() {
             <option value="32">Entertainment: Cartoon & Animation</option>
             <option value="17">Science & Nature</option>
             <option value="18">Science: Computers</option>
-            <option value="19">Science: mathematics</option>
+            <option value="19">Science: Mathematics</option>
             <option value="30">Science: Gadgets</option>
             <option value="20">Mythology</option>
             <option value="21">Sports</option>
@@ -75,25 +75,20 @@ function App() {
             Submit
           </button>
         </div>
-
-        <div className=" bg-blue-300 max-w-[400px]">
-          {questions?.map((trivia) => (
-            <div className="mx-auto p-4 border-b-2 flex flex-col justify-center items-center">
-              <h1 className="text-3xl pb-4">{trivia?.question}</h1>
-              <h3 className="text-2xl">{trivia?.correct_answer}</h3>
-            </div>
-          ))}
-        </div>
+      </div>
+      <div className=" bg-blue-300 w-full">
+        {questions?.map((trivia) => (
+          <div className=" p-4 border-b-2 flex flex-col items-center">
+            <h1 className="text-3xl pb-4 text-center">{trivia?.question}</h1>
+            <h3 className="text-2xl text-center">{trivia?.correct_answer}</h3>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
 export default App;
-
-// <button class="btn difficulty" id="easy" onclick="apiAddress = easyQuiz">Easy</button>
-//         <button class="btn difficulty" id="medium" onclick="apiAddress = mediumQuiz">Medium</button>
-//         <button class="btn difficulty" id="hard" onclick="apiAddress = hardQuiz">Hard</button>
 
 {
   /* <button className="w-40 h-20" onClick={setDifficulty("easy")}>
